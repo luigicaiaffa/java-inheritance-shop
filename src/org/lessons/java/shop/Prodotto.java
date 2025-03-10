@@ -11,7 +11,7 @@ public class Prodotto {
     protected BigDecimal prezzo;
     protected String iva;
 
-    // # Costruttore
+    // # Costruttori
     public Prodotto(int codice, String nome, String marca, BigDecimal prezzo, String iva) {
         this.codice = codice;
         this.nome = nome;
