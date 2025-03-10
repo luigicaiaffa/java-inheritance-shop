@@ -9,60 +9,71 @@ public class Carrello {
         Scanner userInput = new Scanner(System.in);
 
         System.out.println("Benvenuto nel carrello!");
-
-        System.out.println("Scegli un'opzione tra Cuffie, Smartphone e Televisore");
-        String scelta = userInput.nextLine();
-
-        System.out.println("Inserisci il nome del prodotto:");
-        String nome = userInput.nextLine();
-
-        System.out.println("Inserisci la marca del prodotto:");
-        String marca = userInput.nextLine();
-
-        System.out.println("Inserisci il prezzo del prodotto:");
-        BigDecimal prezzo = userInput.nextBigDecimal();
+        System.out.println("Quanti prodotti vuoi inserire? ");
+        int numProdotti = userInput.nextInt();
         userInput.nextLine();
 
-        if (scelta.toLowerCase().compareTo("smartphone") == 0 || scelta.toLowerCase().compareTo("telefono") == 0) {
-            System.out.println("Inserisci il codice IMEI:");
-            long imei = userInput.nextLong();
+        Prodotto[] carrello = new Prodotto[numProdotti];
+
+        for (int i = 0; i < numProdotti; i++) {
+            System.out.println("Scegli un'opzione tra Cuffie, Smartphone e Televisore per inserire un prodotto");
+            String scelta = userInput.nextLine();
+
+            System.out.println("Inserisci il nome del prodotto:");
+            String nome = userInput.nextLine();
+
+            System.out.println("Inserisci la marca del prodotto:");
+            String marca = userInput.nextLine();
+
+            System.out.println("Inserisci il prezzo del prodotto:");
+            BigDecimal prezzo = userInput.nextBigDecimal();
             userInput.nextLine();
 
-            System.out.println("Inserisci la memoria in GB:");
-            int memoria = userInput.nextInt();
-            userInput.nextLine();
+            if (scelta.toLowerCase().compareTo("smartphone") == 0 || scelta.toLowerCase().compareTo("telefono") == 0) {
+                System.out.println("Inserisci il codice IMEI:");
+                long imei = userInput.nextLong();
+                userInput.nextLine();
 
-            Smartphone smartphone = new Smartphone(nome, marca, prezzo, imei, memoria);
-            System.out.println("Il tuo carrello: " + "\n" + smartphone.toString());
-        }
+                System.out.println("Inserisci la memoria in GB:");
+                int memoria = userInput.nextInt();
+                userInput.nextLine();
 
-        else if (scelta.toLowerCase().compareTo("televisore") == 0 || scelta.toLowerCase().compareTo("tv") == 0) {
-            System.out.println("Inserisci la grandezza in pollici:");
-            String dimensioni = userInput.nextLine();
+                carrello[i] = new Smartphone(nome, marca, prezzo, imei, memoria);
+            }
 
-            System.out.println("Inserisci se è smart o no (true/false):");
-            boolean isSmart = userInput.nextBoolean();
+            else if (scelta.toLowerCase().compareTo("televisore") == 0 || scelta.toLowerCase().compareTo("tv") == 0) {
+                System.out.println("Inserisci la grandezza in pollici:");
+                String dimensioni = userInput.nextLine();
 
-            Televisore televisore = new Televisore(nome, marca, prezzo, dimensioni, isSmart);
-            System.out.println("Il tuo carrello: " + "\n" + televisore.toString());
-        }
+                System.out.println("Inserisci se è smart o no (true/false):");
+                boolean isSmart = userInput.nextBoolean();
+                userInput.nextLine();
 
-        else if (scelta.toLowerCase().compareTo("cuffie") == 0 || scelta.toLowerCase().compareTo("cuffia") == 0) {
-            System.out.println("Inserisci il colore:");
-            String colore = userInput.nextLine();
+                carrello[i] = new Televisore(nome, marca, prezzo, dimensioni, isSmart);
+            }
 
-            System.out.println("Inserisci se è wireless o no (true/false):");
-            boolean isWireless = userInput.nextBoolean();
+            else if (scelta.toLowerCase().compareTo("cuffie") == 0 || scelta.toLowerCase().compareTo("cuffia") == 0) {
+                System.out.println("Inserisci il colore:");
+                String colore = userInput.nextLine();
 
-            Cuffia cuffia = new Cuffia(nome, marca, prezzo, colore, isWireless);
-            System.out.println("Il tuo carrello: " + "\n" + cuffia.toString());
-        }
+                System.out.println("Inserisci se è wireless o no (true/false):");
+                boolean isWireless = userInput.nextBoolean();
+                userInput.nextLine();
 
-        else {
-            Prodotto prodotto = new Prodotto(nome, marca, prezzo);
-            System.out.println("Il tuo carrello: " + "\n" + prodotto.toString());
+                carrello[i] = new Cuffia(nome, marca, prezzo, colore, isWireless);
+            }
+
+            else {
+                carrello[i] = new Prodotto(nome, marca, prezzo);
+            }
+
         }
 
         userInput.close();
+
+        System.out.println("\nIl tuo carrello: \n");
+        for (Prodotto prodotto : carrello) {
+            System.out.println(prodotto.toString());
+        }
     }
 }

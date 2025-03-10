@@ -25,7 +25,7 @@ public class Smartphone extends Prodotto {
     }
 
     public String getMemoria() {
-        return this.memoria + " GB";
+        return this.memoria + "GB";
     }
 
     public void setMemoria(int memoria) {
