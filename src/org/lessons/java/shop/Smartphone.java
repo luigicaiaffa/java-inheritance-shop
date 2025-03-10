@@ -1,6 +1,7 @@
 package org.lessons.java.shop;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class Smartphone extends Prodotto {
 
@@ -30,6 +31,19 @@ public class Smartphone extends Prodotto {
 
     public void setMemoria(int memoria) {
         this.memoria = memoria;
+    }
+
+    @Override
+    public void setPrezzoScontato() {
+        if (memoria <= 32) {
+            BigDecimal sconto = this.getPrezzo().multiply(new BigDecimal("0.05")).setScale(2,
+                    RoundingMode.HALF_EVEN);
+            this.prezzo = this.getPrezzo().subtract(sconto);
+        } else {
+            BigDecimal sconto = this.getPrezzo().multiply(new BigDecimal("0.02")).setScale(2,
+                    RoundingMode.HALF_EVEN);
+            this.prezzo = this.getPrezzo().subtract(sconto);
+        }
     }
 
     @Override

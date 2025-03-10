@@ -70,6 +70,12 @@ public class Prodotto {
         this.iva = iva;
     }
 
+    public void setPrezzoScontato() {
+        BigDecimal sconto = this.getPrezzo().multiply(new BigDecimal("0.02")).setScale(2,
+                RoundingMode.HALF_EVEN);
+        this.prezzo = this.getPrezzo().subtract(sconto);
+    }
+
     @Override
     public String toString() {
         return codice + " - " + nome + "\n" + "Marca: " + marca + "\n" + "Prezzo: " + prezzo + "\n" + "Iva: "

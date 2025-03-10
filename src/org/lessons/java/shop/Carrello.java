@@ -9,6 +9,11 @@ public class Carrello {
         Scanner userInput = new Scanner(System.in);
 
         System.out.println("Benvenuto nel carrello!");
+
+        System.out.println("Possiedi una tessera fedeltà?");
+        boolean hasFidelityCard = userInput.nextBoolean();
+        userInput.nextLine();
+
         System.out.println("Quanti prodotti vuoi inserire? ");
         int numProdotti = userInput.nextInt();
         userInput.nextLine();
@@ -72,8 +77,22 @@ public class Carrello {
         userInput.close();
 
         System.out.println("\nIl tuo carrello: \n");
+
         for (Prodotto prodotto : carrello) {
+
+            if (hasFidelityCard) {
+                prodotto.setPrezzoScontato();
+            }
+
             System.out.println(prodotto.toString());
         }
+
+        BigDecimal totale = new BigDecimal("0.00");
+        for (Prodotto prodotto : carrello) {
+            totale = totale.add(prodotto.getPrezzo());
+        }
+
+        System.out.println("Totale Carrello: " + totale);
+
     }
 }
