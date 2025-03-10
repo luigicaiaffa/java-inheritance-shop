@@ -5,8 +5,10 @@ import java.math.BigDecimal;
 public class Main {
     public static void main(String[] args) {
         Prodotto prodotto = new Prodotto(1, "AirTag", "Apple", new BigDecimal("39.90"), "22%");
-        Smartphone smartphone = new Smartphone(2, "iPhone 16", "Apple", new BigDecimal("989.90"), "22%", 123456789012345L, 128);
-        Televisore televisore = new Televisore(3, "Samsung TV", "Samsung", new BigDecimal("499.90"), "22%", "55 pollici", true);
+        Smartphone smartphone = new Smartphone(2, "iPhone 15", "Apple", new BigDecimal("839.90"), "22%",
+                123456789012345L, 128);
+        Televisore televisore = new Televisore(3, "Samsung TV", "Samsung", new BigDecimal("499.90"), "22%",
+                "43 pollici", true);
         Cuffia cuffia = new Cuffia(4, "AirPods", "Apple", new BigDecimal("179.90"), "22%", "Bianco", true);
 
         System.out.println("--------");
@@ -16,14 +18,16 @@ public class Main {
         System.out.println("Prezzo: " + prodotto.getPrezzo());
         System.out.println("Iva: " + prodotto.getIva());
 
-
         System.out.println("--------");
         System.out.println("Codice: " + smartphone.getCodice());
+        smartphone.setNome("Iphone 16");
         System.out.println("Nome: " + smartphone.getNome());
         System.out.println("Marca: " + smartphone.getMarca());
+        smartphone.setPrezzo(new BigDecimal("989.90"));
         System.out.println("Prezzo: " + smartphone.getPrezzo());
         System.out.println("Iva: " + smartphone.getIva());
         System.out.println("Imei: " + smartphone.getImei());
+        smartphone.setMemoria(256);
         System.out.println("Memoria: " + smartphone.getMemoria());
 
         System.out.println("--------");
@@ -32,6 +36,7 @@ public class Main {
         System.out.println("Marca: " + televisore.getMarca());
         System.out.println("Prezzo: " + televisore.getPrezzo());
         System.out.println("Iva: " + televisore.getIva());
+        televisore.setDimensioni("55 pollici");
         System.out.println("Dimensioni: " + televisore.getDimensioni());
         System.out.println("Smart Tv: " + televisore.getIsSmart());
 
