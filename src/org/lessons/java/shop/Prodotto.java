@@ -1,6 +1,7 @@
 package org.lessons.java.shop;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class Prodotto {
 
@@ -42,11 +43,13 @@ public class Prodotto {
     }
 
     public BigDecimal getPrezzo() {
-        return this.prezzo;
+        return this.prezzo.setScale(2,
+                RoundingMode.HALF_EVEN);
     }
 
     public void setPrezzo(BigDecimal prezzo) {
-        this.prezzo = prezzo;
+        this.prezzo = prezzo.setScale(2,
+                RoundingMode.HALF_EVEN);
     }
 
     public String getIva() {
