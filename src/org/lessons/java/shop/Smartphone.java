@@ -9,8 +9,8 @@ public class Smartphone extends Prodotto {
     private int memoria;
 
     // # Costruttori
-    public Smartphone(int codice, String nome, String marca, BigDecimal prezzo, String iva, long imei, int memoria) {
-        super(codice, nome, marca, prezzo, iva);
+    public Smartphone(String nome, String marca, BigDecimal prezzo, long imei, int memoria) {
+        super(nome, marca, prezzo);
         this.imei = imei;
         this.memoria = memoria;
     }
@@ -25,7 +25,7 @@ public class Smartphone extends Prodotto {
     }
 
     public String getMemoria() {
-        return this.memoria + " GB"; 
+        return this.memoria + " GB";
     }
 
     public void setMemoria(int memoria) {

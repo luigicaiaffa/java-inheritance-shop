@@ -2,6 +2,7 @@ package org.lessons.java.shop;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.Random;
 
 public class Prodotto {
 
@@ -19,6 +20,15 @@ public class Prodotto {
         this.marca = marca;
         this.prezzo = prezzo;
         this.iva = iva;
+    }
+
+    public Prodotto(String nome, String marca, BigDecimal prezzo) {
+        Random random = new Random();
+        this.codice = random.nextInt(99);
+        this.nome = nome;
+        this.marca = marca;
+        this.prezzo = prezzo;
+        this.iva = "22%";
     }
 
     // # Metodi

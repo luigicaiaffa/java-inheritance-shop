@@ -6,16 +6,16 @@ public class Cuffia extends Prodotto {
 
     // # Variabili di istanza
     private String colore;
-    private boolean isWireless; 
+    private boolean isWireless;
 
     // # Costruttori
-     public Cuffia(int codice, String nome, String marca, BigDecimal prezzo, String iva, String colore, boolean isWireless) {
-        super(codice, nome, marca, prezzo, iva);
+    public Cuffia(String nome, String marca, BigDecimal prezzo, String colore, boolean isWireless) {
+        super(nome, marca, prezzo);
         this.colore = colore;
         this.isWireless = isWireless;
     }
 
-    // # Metodi 
+    // # Metodi
     public String getColore() {
         return this.colore;
     }
