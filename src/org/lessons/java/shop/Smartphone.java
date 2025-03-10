@@ -31,4 +31,9 @@ public class Smartphone extends Prodotto {
     public void setMemoria(int memoria) {
         this.memoria = memoria;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + "IMEI: " + this.imei + "\n" + "Memoria: " + this.getMemoria() + "\n";
+    }
 }
